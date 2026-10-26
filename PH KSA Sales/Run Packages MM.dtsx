@@ -1,0 +1,583 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/13/2025 11:04:03 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="SQLSERVER2019"
+  DTS:CreatorName="INTELLYTICS\Administrator"
+  DTS:DTSID="{B8D19A41-72D1-465B-9312-E1E5AB9CF620}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1010.2"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Run Packages Sales Ranges"
+  DTS:PackageType="5"
+  DTS:VersionBuild="182"
+  DTS:VersionGUID="{59F2075E-DE8A-4167-9E03-B9C1D0253621}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{75ED5354-2183-4E93-BE96-F5B515E276C7}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DateIDFromIT">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{8F62F669-54F2-4BE8-BCEB-90915772EA31}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="DateIDToIT">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{BE337560-49D2-4F28-8489-0046E6BA2164}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="objDateRange">
+      <DTS:VariableValue
+        DTS:DataSubType="ManagedSerializable"
+        DTS:DataType="13">
+        <SOAP-ENV:Envelope xmlns:clr="http://schemas.microsoft.com/soap/encoding/clr/1.0" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+          <SOAP-ENV:Body>
+            <xsd:anyType
+              id="ref-1"></xsd:anyType>
+          </SOAP-ENV:Body>
+        </SOAP-ENV:Envelope>
+      </DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
+  <DTS:LoggingOptions
+    DTS:FilterKind="0"
+    DTS:LoggingMode="2">
+    <DTS:Property
+      DTS:DataType="8"
+      DTS:Name="EventFilter">1,13,OnInformation</DTS:Property>
+    <DTS:Property
+      DTS:EventName="OnInformation"
+      DTS:Name="ColumnFilter">
+      <DTS:Property
+        DTS:Name="Computer">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="Operator">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceName">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="SourceID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="ExecutionID">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="MessageText">-1</DTS:Property>
+      <DTS:Property
+        DTS:Name="DataBytes">-1</DTS:Property>
+    </DTS:Property>
+  </DTS:LoggingOptions>
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Foreach Loop Container"
+      DTS:CreationName="STOCK:FOREACHLOOP"
+      DTS:Description="Foreach Loop Container"
+      DTS:DTSID="{6C7232E3-5228-40CC-8FDA-70388AE733A7}"
+      DTS:ExecutableType="STOCK:FOREACHLOOP"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Foreach Loop Container">
+      <DTS:ForEachEnumerator
+        DTS:CreationName="Microsoft.ForEachADOEnumerator"
+        DTS:DTSID="{AE011FD9-7253-4E22-95FB-FA0B30996787}"
+        DTS:ObjectName="{AE011FD9-7253-4E22-95FB-FA0B30996787}">
+        <DTS:ObjectData>
+          <FEEADO
+            EnumType="EnumerateAllRows"
+            VarName="User::objDateRange" />
+        </DTS:ObjectData>
+      </DTS:ForEachEnumerator>
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:Executables>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Load Fact Sales"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{A7AA7E59-889D-4B7B-819E-6B4933F5D052}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Fact Sales"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>7-Load Menu Mix Fact Manual.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>DateIDFrom</ParameterName>
+                <BindedVariableOrParameterName>User::DateIDFromIT</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>DateIDTo</ParameterName>
+                <BindedVariableOrParameterName>User::DateIDToIT</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Load Stage Daily"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{8C12F5F5-4EBB-4840-B86B-A14ED75420F6}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Load Stage Daily"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>6-Load Menu Mix to Stage.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>DateIDFrom</ParameterName>
+                <BindedVariableOrParameterName>User::DateIDFromIT</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>DateIDTo</ParameterName>
+                <BindedVariableOrParameterName>User::DateIDToIT</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+        <DTS:Executable
+          DTS:refId="Package\Foreach Loop Container\Transactional Data"
+          DTS:CreationName="Microsoft.ExecutePackageTask"
+          DTS:Description="Execute Package Task"
+          DTS:DTSID="{57330A80-8CAE-4ACC-B05D-618AD6D8B827}"
+          DTS:ExecutableType="Microsoft.ExecutePackageTask"
+          DTS:LocaleID="-1"
+          DTS:ObjectName="Transactional Data"
+          DTS:TaskContact="Microsoft Corporation; Microsoft SQL Server; Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+          <DTS:Variables />
+          <DTS:ObjectData>
+            <ExecutePackageTask>
+              <UseProjectReference>True</UseProjectReference>
+              <PackageName>5-Load Menu Mix to ODS.dtsx</PackageName>
+              <ParameterAssignment>
+                <ParameterName>DateIDFrom</ParameterName>
+                <BindedVariableOrParameterName>User::DateIDFromIT</BindedVariableOrParameterName>
+              </ParameterAssignment>
+              <ParameterAssignment>
+                <ParameterName>DateIDTo</ParameterName>
+                <BindedVariableOrParameterName>User::DateIDToIT</BindedVariableOrParameterName>
+              </ParameterAssignment>
+            </ExecutePackageTask>
+          </DTS:ObjectData>
+        </DTS:Executable>
+      </DTS:Executables>
+      <DTS:PrecedenceConstraints>
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          DTS:CreationName=""
+          DTS:DTSID="{71B24B6A-BD1C-44C4-981E-E916D0CFE2FB}"
+          DTS:From="Package\Foreach Loop Container\Transactional Data"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint"
+          DTS:To="Package\Foreach Loop Container\Load Stage Daily" />
+        <DTS:PrecedenceConstraint
+          DTS:refId="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          DTS:CreationName=""
+          DTS:DTSID="{5994A23D-68C0-442A-8261-A023A2F2BBAD}"
+          DTS:From="Package\Foreach Loop Container\Load Stage Daily"
+          DTS:LogicalAnd="True"
+          DTS:ObjectName="Constraint 1"
+          DTS:To="Package\Foreach Loop Container\Load Fact Sales" />
+      </DTS:PrecedenceConstraints>
+      <DTS:ForEachVariableMappings>
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{1474876E-25BC-4A39-A088-A4DD8309C247}"
+          DTS:ObjectName="{1474876E-25BC-4A39-A088-A4DD8309C247}"
+          DTS:ValueIndex="0"
+          DTS:VariableName="User::DateIDFromIT" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{9A47441F-A4E6-474D-8AB7-6B59F309B0E9}"
+          DTS:ObjectName="{9A47441F-A4E6-474D-8AB7-6B59F309B0E9}"
+          DTS:ValueIndex="1"
+          DTS:VariableName="User::DateIDToIT" />
+      </DTS:ForEachVariableMappings>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Date from Parameter"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{dec722c6-3c09-42f4-ae9e-132cce3f4742}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Date from Parameter"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{07DF1F6F-92DF-47E8-A4F5-A24FF60F5CF7}"
+          SQLTask:SqlStatementSource="DECLARE @StartDate INT = ?;&#xA;DECLARE @EndDate   INT = ?;&#xA;DECLARE @Interval  INT = 15;&#xA;&#xA;WITH Ranges AS (&#xA;    SELECT CAST(CONVERT(CHAR(8), @StartDate) AS DATE) AS StartDate&#xA;    UNION ALL&#xA;    SELECT DATEADD(DAY, @Interval, StartDate)&#xA;    FROM Ranges&#xA;    WHERE DATEADD(DAY, @Interval - 1, StartDate) &lt; CAST(CONVERT(CHAR(8), @EndDate) AS DATE)&#xA;)&#xA;SELECT &#xA;    CONVERT(INT, FORMAT(StartDate, 'yyyyMMdd')) AS StartDate,&#xA;    CONVERT(INT, FORMAT(&#xA;        CASE &#xA;            WHEN DATEADD(DAY, @Interval - 1, StartDate) &gt; CAST(CONVERT(CHAR(8), @EndDate) AS DATE)&#xA;                THEN CAST(CONVERT(CHAR(8), @EndDate) AS DATE)&#xA;            ELSE DATEADD(DAY, @Interval - 1, StartDate)&#xA;        END, 'yyyyMMdd')) AS EndDate&#xA;FROM Ranges&#xA;OPTION (MAXRECURSION 1000);"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::objDateRange" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="0"
+            SQLTask:DtsVariableName="$Project::DateIDFrom"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+          <SQLTask:ParameterBinding
+            SQLTask:ParameterName="1"
+            SQLTask:DtsVariableName="$Project::DateIDTo"
+            SQLTask:ParameterDirection="Input"
+            SQLTask:DataType="3"
+            SQLTask:ParameterSize="-1" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Date Iteration"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{31858B6A-EE73-42C0-9013-B96E58AEB158}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Date Iteration"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{07DF1F6F-92DF-47E8-A4F5-A24FF60F5CF7}"
+          SQLTask:SqlStatementSource="DECLARE @DateList TABLE (DateID INT);&#xA;&#xA;INSERT INTO @DateList (DateID)&#xA;VALUES (20240227),(20240228),(20240229),(20240301),(20240302),(20240303),(20240304),(20240306),&#xA;       (20240317),(20240318),(20240319),(20240320),(20240321),(20240322),(20240324),(20240325),&#xA;       (20240326),(20240327),(20240328),(20240331),(20240415),(20240416),(20240417),(20240418),&#xA;       (20240419),(20240420),(20240421),(20240422),(20240523),(20240524),(20240525),(20240526),&#xA;       (20240527),(20240528),(20240529),(20240530),(20240531),(20240601),(20240603),(20240623),&#xA;       (20240624),(20240625),(20240626),(20240627),(20240628),(20240629),(20240630),(20240701),&#xA;       (20240714),(20240715),(20240716),(20240717),(20240718),(20240719),(20240720),(20240721),&#xA;       (20240722),(20240808),(20240811),(20240812),(20240813),(20240814),(20240815),(20240816),&#xA;       (20240817),(20240908),(20240909),(20240910),(20240911),(20240912),(20240913),(20240914),&#xA;       (20240915),(20240916),(20251201),(20251208),(20260129),(20260209),(20260307),(20260308),&#xA;       (20260326);&#xA;&#xA;;WITH ExpandedList AS (&#xA;    -- the original dates being rerun&#xA;    SELECT DateID FROM @DateList&#xA;&#xA;    UNION  -- dedupes automatically, no need for DISTINCT&#xA;&#xA;    -- any CY date whose FISCAL LY lookup (@CalendarType='Fiscal') points back to one of our dates&#xA;    SELECT d.DateID&#xA;    FROM RAHDWPHMena.Master.Date d&#xA;    JOIN @DateList dl ON d.DateLYSecAlternateID = CONVERT(DATE, CONVERT(CHAR(8), dl.DateID))&#xA;&#xA;    UNION&#xA;&#xA;    -- any CY date whose CALENDAR LY lookup (@CalendarType='Calendar') points back to one of our dates&#xA;    SELECT d.DateID&#xA;    FROM RAHDWPHMena.Master.Date d&#xA;    JOIN @DateList dl ON d.DayLYSecAlternateID = CONVERT(DATE, CONVERT(CHAR(8), dl.DateID))&#xA;),&#xA;Islands AS (&#xA;    SELECT&#xA;        DateID,&#xA;        CAST(CONVERT(CHAR(8), DateID) AS DATE) AS DateValue,&#xA;        DATEADD(DAY, -ROW_NUMBER() OVER (ORDER BY CAST(CONVERT(CHAR(8), DateID) AS DATE)),&#xA;                 CAST(CONVERT(CHAR(8), DateID) AS DATE)) AS GrpKey&#xA;    FROM ExpandedList&#xA;)&#xA;SELECT&#xA;    CONVERT(INT, FORMAT(MIN(DateValue), 'yyyyMMdd')) AS StartDate,&#xA;    CONVERT(INT, FORMAT(MAX(DateValue), 'yyyyMMdd')) AS EndDate&#xA;FROM Islands&#xA;GROUP BY GrpKey&#xA;ORDER BY StartDate;"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::objDateRange" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Date Iteration 1"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{1af5d36f-e0ea-4838-a253-f939a6748553}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Date Iteration 1"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{07DF1F6F-92DF-47E8-A4F5-A24FF60F5CF7}"
+          SQLTask:SqlStatementSource="DECLARE @DateList TABLE (DateID INT);&#xA;&#xA;INSERT INTO @DateList (DateID)&#xA;VALUES (20250105),(20250106);&#xA;&#xA;;WITH ExpandedList AS (&#xA;    -- the original dates being rerun&#xA;    SELECT DateID FROM @DateList&#xA;&#xA;    UNION  -- dedupes automatically, no need for DISTINCT&#xA;&#xA;    -- any CY date whose FISCAL LY lookup (@CalendarType='Fiscal') points back to one of our dates&#xA;    SELECT d.DateID&#xA;    FROM RAHDWPHMena.Master.Date d&#xA;    JOIN @DateList dl ON d.DateLYSecAlternateID = CONVERT(DATE, CONVERT(CHAR(8), dl.DateID))&#xA;&#xA;    UNION&#xA;&#xA;    -- any CY date whose CALENDAR LY lookup (@CalendarType='Calendar') points back to one of our dates&#xA;    SELECT d.DateID&#xA;    FROM RAHDWPHMena.Master.Date d&#xA;    JOIN @DateList dl ON d.DayLYSecAlternateID = CONVERT(DATE, CONVERT(CHAR(8), dl.DateID))&#xA;),&#xA;Islands AS (&#xA;    SELECT&#xA;        DateID,&#xA;        CAST(CONVERT(CHAR(8), DateID) AS DATE) AS DateValue,&#xA;        DATEADD(DAY, -ROW_NUMBER() OVER (ORDER BY CAST(CONVERT(CHAR(8), DateID) AS DATE)),&#xA;                 CAST(CONVERT(CHAR(8), DateID) AS DATE)) AS GrpKey&#xA;    FROM ExpandedList&#xA;)&#xA;SELECT&#xA;    CONVERT(INT, FORMAT(MIN(DateValue), 'yyyyMMdd')) AS StartDate,&#xA;    CONVERT(INT, FORMAT(MAX(DateValue), 'yyyyMMdd')) AS EndDate&#xA;FROM Islands&#xA;GROUP BY GrpKey&#xA;ORDER BY StartDate;"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::objDateRange" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\SQL Date Ranged Iteration combined"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{576C5806-D3BC-4743-AA4F-0970DD940FBE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="SQL Date Ranged Iteration combined"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="3">
+      <DTS:Variables />
+      <DTS:LoggingOptions
+        DTS:FilterKind="0"
+        DTS:LoggingMode="2" />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{07DF1F6F-92DF-47E8-A4F5-A24FF60F5CF7}"
+          SQLTask:SqlStatementSource="DECLARE @DateList TABLE (DateID INT);&#xA;&#xA;INSERT INTO @DateList (DateID)&#xA;VALUES (20240227),(20240228),(20240229),(20240301),(20240302),(20240303),(20240304),(20240306),&#xA;       (20240317),(20240318),(20240319),(20240320),(20240321),(20240322),(20240324),(20240325),&#xA;       (20240326),(20240327),(20240328),(20240331),(20240415),(20240416),(20240417),(20240418),&#xA;       (20240419),(20240420),(20240421),(20240422),(20240523),(20240524),(20240525),(20240526),&#xA;       (20240527),(20240528),(20240529),(20240530),(20240531),(20240601),(20240603),(20240623),&#xA;       (20240624),(20240625),(20240626),(20240627),(20240628),(20240629),(20240630),(20240701),&#xA;       (20240714),(20240715),(20240716),(20240717),(20240718),(20240719),(20240720),(20240721),&#xA;       (20240722),(20240808),(20240811),(20240812),(20240813),(20240814),(20240815),(20240816),&#xA;       (20240817),(20240908),(20240909),(20240910),(20240911),(20240912),(20240913),(20240914),&#xA;       (20240915),(20240916),(20251201),(20251208),(20260129),(20260209),(20260307),(20260308),&#xA;       (20260326);&#xA;&#xA;DECLARE @Interval INT = 15;&#xA;&#xA;;WITH ExpandedList AS (&#xA;    -- original dates being rerun&#xA;    SELECT DateID FROM @DateList&#xA;&#xA;    UNION  -- dedupes automatically&#xA;&#xA;    -- CY dates whose FISCAL LY lookup points back to one of our dates&#xA;    SELECT d.DateID&#xA;    FROM RAHDWPHMena.Master.Date d&#xA;    JOIN @DateList dl ON d.DateLYSecAlternateID = CONVERT(DATE, CONVERT(CHAR(8), dl.DateID))&#xA;&#xA;    UNION&#xA;&#xA;    -- CY dates whose CALENDAR LY lookup points back to one of our dates&#xA;    SELECT d.DateID&#xA;    FROM RAHDWPHMena.Master.Date d&#xA;    JOIN @DateList dl ON d.DayLYSecAlternateID = CONVERT(DATE, CONVERT(CHAR(8), dl.DateID))&#xA;),&#xA;Islands AS (&#xA;    SELECT&#xA;        DateID,&#xA;        CAST(CONVERT(CHAR(8), DateID) AS DATE) AS DateValue,&#xA;        DATEADD(DAY, -ROW_NUMBER() OVER (ORDER BY CAST(CONVERT(CHAR(8), DateID) AS DATE)),&#xA;                 CAST(CONVERT(CHAR(8), DateID) AS DATE)) AS GrpKey&#xA;    FROM ExpandedList&#xA;),&#xA;Ranges AS (&#xA;    SELECT MIN(DateValue) AS IslandStart, MAX(DateValue) AS IslandEnd&#xA;    FROM Islands&#xA;    GROUP BY GrpKey&#xA;),&#xA;Chunks AS (&#xA;    -- anchor: one row per island, chunk starts at the island's own start&#xA;    SELECT IslandStart, IslandEnd, IslandStart AS ChunkStart&#xA;    FROM Ranges&#xA;&#xA;    UNION ALL&#xA;&#xA;    -- recursive: step @Interval days forward WITHIN the same island until its own end&#xA;    SELECT IslandStart, IslandEnd, DATEADD(DAY, @Interval, ChunkStart)&#xA;    FROM Chunks&#xA;    WHERE DATEADD(DAY, @Interval - 1, ChunkStart) &lt; IslandEnd&#xA;)&#xA;SELECT&#xA;    CONVERT(INT, FORMAT(ChunkStart, 'yyyyMMdd')) AS StartDate,&#xA;    CONVERT(INT, FORMAT(&#xA;        CASE&#xA;            WHEN DATEADD(DAY, @Interval - 1, ChunkStart) &gt; IslandEnd THEN IslandEnd&#xA;            ELSE DATEADD(DAY, @Interval - 1, ChunkStart)&#xA;        END, 'yyyyMMdd')) AS EndDate&#xA;FROM Chunks&#xA;ORDER BY StartDate&#xA;OPTION (MAXRECURSION 1000);"
+          SQLTask:ResultType="ResultSetType_Rowset" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::objDateRange" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D2B62FB8-A9B2-43E1-9A78-1ADD56EF5D5B}"
+      DTS:From="Package\SQL Date Ranged Iteration combined"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{8B90EFF6-F884-4169-86BA-58EF5B7154E8}"
+      DTS:From="Package\SQL Date Iteration 1"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{6ED9C24F-850E-4C85-860C-1EB7757567D7}"
+      DTS:From="Package\SQL Date Iteration"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Foreach Loop Container" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{FB3E7E6B-688A-41FA-B91A-932AEF84718C}"
+      DTS:From="Package\SQL Date from Parameter"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\Foreach Loop Container" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="158,42"
+          Id="Package\Foreach Loop Container\Load Fact Sales"
+          TopLeft="65,241" />
+        <NodeLayout
+          Size="163,42"
+          Id="Package\Foreach Loop Container\Load Stage Daily"
+          TopLeft="62,143" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Foreach Loop Container\Transactional Data"
+          TopLeft="57,35" />
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint]"
+          TopLeft="143,77">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,66"
+              Start="0,0"
+              End="0,58.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,58.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Foreach Loop Container.PrecedenceConstraints[Constraint 1]"
+          TopLeft="143.75,185">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,56"
+              Start="0,0"
+              End="0,48.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,48.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <ContainerLayout
+          HeaderHeight="43"
+          IsExpanded="True"
+          PanelSize="317,361"
+          Size="317,404"
+          Id="Package\Foreach Loop Container"
+          TopLeft="84,191" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\SQL Date Iteration"
+          TopLeft="650,47" />
+        <NodeLayout
+          Size="170,42"
+          Id="Package\SQL Date Iteration 1"
+          TopLeft="680,232" />
+        <NodeLayout
+          Size="262,42"
+          Id="Package\SQL Date Ranged Iteration combined"
+          TopLeft="735,152" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="735,173">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-334,220"
+              Start="0,0"
+              End="-326.5,220">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-163,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-163,0"
+                    Point2="-167,0"
+                    Point3="-167,4" />
+                  <mssgle:LineSegment
+                    End="-167,216" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-167,216"
+                    Point2="-167,220"
+                    Point3="-171,220" />
+                  <mssgle:LineSegment
+                    End="-326.5,220" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="680,253">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-279,206"
+              Start="0,0"
+              End="-271.5,206">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-162.739644970414,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-162.739644970414,0"
+                    Point2="-166.739644970414,0"
+                    Point3="-166.739644970414,4" />
+                  <mssgle:LineSegment
+                    End="-166.739644970414,202" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-166.739644970414,202"
+                    Point2="-166.739644970414,206"
+                    Point3="-170.739644970414,206" />
+                  <mssgle:LineSegment
+                    End="-271.5,206" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="735,89">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-441,102"
+              Start="0,0"
+              End="-441,94.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,56.8926553672316" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,56.8926553672316"
+                    Point2="0,60.8926553672316"
+                    Point3="-4,60.8926553672316" />
+                  <mssgle:LineSegment
+                    End="-437,60.8926553672316" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-437,60.8926553672316"
+                    Point2="-441,60.8926553672316"
+                    Point3="-441,64.8926553672316" />
+                  <mssgle:LineSegment
+                    End="-441,94.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="206,42"
+          Id="Package\SQL Date from Parameter"
+          TopLeft="86,25" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="190,67">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,124"
+              Start="0,0"
+              End="0,116.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,116.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="172 17 0 5 RAHDWPHJordan"
+  DTS:DTSID="{07DF1F6F-92DF-47E8-A4F5-A24FF60F5CF7}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=172.17.0.5;Initial Catalog=RAHDWPHJordan;Provider=SQLNCLI11.1;Integrated Security=SSPI;Auto Translate=False;Application Name=SSIS-PH KSA Sales-{07DF1F6F-92DF-47E8-A4F5-A24FF60F5CF7}172.17.0.5.RAHDWPHKsa;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

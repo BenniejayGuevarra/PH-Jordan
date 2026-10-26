@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="SMTP Connection Manager"
+  DTS:DTSID="{6D4F4AEB-F3D1-4AAC-BCDD-E9E312AB302F}"
+  DTS:Description="Email"
+  DTS:CreationName="SMTP">
+  <DTS:ObjectData>
+    <SmtpConnectionManager
+      ConnectionString="SmtpServer=intellyticsdb3.intellytics.com;UseWindowsAuthentication=True;EnableSsl=False;"
+      ConnectByProxy="False" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

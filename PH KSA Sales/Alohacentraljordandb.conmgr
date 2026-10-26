@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="Alohacentraljordandb"
+  DTS:DTSID="{6D6DB8BC-AA88-4F8A-A717-8EF298894062}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=alohareplication.public.1bcc42ae107f.database.windows.net,3342;User ID=svc_pht;Initial Catalog=Alohacentraljordandb;Provider=MSOLEDBSQL.1;Persist Security Info=True;Auto Translate=False;Application Name=SSIS-PH KSA Sales-{6D6DB8BC-AA88-4F8A-A717-8EF298894062}alohareplication.public.1bcc42ae107f.database.windows.net,3342.Alohace;">
+      <DTS:Password
+        DTS:Name="Password"
+        Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAssLKu1xV5USwc1mmIKcQhAAAAAACAAAAAAAQZgAAAAEAACAAAADDk1VZ1+frypar7iGRQSdYf7r5S47eqiWlcuQQV93NlwAAAAAOgAAAAAIAACAAAABgeirw/z/1GeiWCc0meaIy9JDVarW2EBEjXguQ0uantoAAAABp3wzMtIwnit9quiZsgGTThnURKcuXucygaS5tLZuYJBMnEbZQ3VFHXOdXRJ94WQmqLrBm5FjFcIX7Boa0y5EqeDCJti5s3XklL5S6IxXSy+RYaFT9BMEPEZnLReJAHBIsN4W+o4XQpKvu12uq/Xr2c+kv0dG1JIpNVun59ZSo/kAAAABwJKde9Vmm/StlrX2sm4gI1ho4AU9lgy5YFa6XJ1qytSPGYKP2sswaVnjzyL6QU/M3XQKhemOWFCs84//TcvU1</DTS:Password>
+    </DTS:ConnectionManager>
+  </DTS:ObjectData>
+</DTS:ConnectionManager>

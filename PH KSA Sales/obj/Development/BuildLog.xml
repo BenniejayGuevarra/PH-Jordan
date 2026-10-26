@@ -1,0 +1,75 @@
+<?xml version="1.0"?>
+<BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <ProjectInfo>
+    <Name>PH Jordan Sales</Name>
+    <LastWriteTime>2026-08-27T14:01:12.9615521Z</LastWriteTime>
+    <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+  </ProjectInfo>
+  <LastBuildInfos>
+    <ProjectBuildItemInfo>
+      <Name>0-Update Masters.dtsx</Name>
+      <LastWriteTime>2026-07-13T16:30:46.5174661Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>1-Load EDSS Data to ODS Manual.dtsx</Name>
+      <LastWriteTime>2026-06-26T11:14:39.4089397Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>1-Load EDSS Data to ODS.dtsx</Name>
+      <LastWriteTime>2026-08-04T09:21:11.791512Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>2-Load Stage Sales Manual.dtsx</Name>
+      <LastWriteTime>2026-06-26T11:14:39.4393674Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>3-Load Fact Sales Manual.dtsx</Name>
+      <LastWriteTime>2026-06-26T11:14:39.4786111Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>2-Load Stage Sales.dtsx</Name>
+      <LastWriteTime>2026-07-29T06:00:28.2198867Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>3-Load Fact Sales.dtsx</Name>
+      <LastWriteTime>2026-07-31T12:33:52.3873877Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Run Packages Sales Hardcoded.dtsx</Name>
+      <LastWriteTime>2026-08-27T11:45:21.4191935Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>5-Load Menu Mix to ODS.dtsx</Name>
+      <LastWriteTime>2026-09-24T10:49:20.9619896Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Run Packages Sales Ranges.dtsx</Name>
+      <LastWriteTime>2026-07-31T08:00:49.0724422Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>6-Load Menu Mix to Stage.dtsx</Name>
+      <LastWriteTime>2026-08-14T10:34:54.7488543Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Run Packages MM.dtsx</Name>
+      <LastWriteTime>2026-08-27T16:27:01.3558322Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>7-Load Menu Mix Fact Manual.dtsx</Name>
+      <LastWriteTime>2026-08-27T17:39:32.5830402Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+  </LastBuildInfos>
+</BuildLog>
